@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:2:1-36:12
-INJECTED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:2:1-36:12
-INJECTED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:2:1-36:12
-INJECTED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:2:1-36:12
+ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:2:1-38:12
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\chrit\.gradle\caches\8.14\transforms\c62980add9f2dfdedeeb226b26b55c0d\transformed\material-1.11.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\chrit\.gradle\caches\8.14\transforms\5c791e1715537476d51776c73abee4d7\transformed\appcompat-resources-1.6.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\chrit\.gradle\caches\8.14\transforms\021b12c51f8b5228f60faaa75b804643\transformed\constraintlayout-2.0.1\AndroidManifest.xml:2:1-11:12
@@ -53,9 +53,13 @@ MERGED from [androidx.print:print:1.0.0] C:\Users\chrit\.gradle\caches\8.14\tran
 		INJECTED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:4:5-67
+	android:name
+		ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:4:22-64
 application
-ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:4:5-34:19
-INJECTED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:4:5-34:19
+ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:6:5-36:19
+INJECTED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:6:5-36:19
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\chrit\.gradle\caches\8.14\transforms\c62980add9f2dfdedeeb226b26b55c0d\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\chrit\.gradle\caches\8.14\transforms\c62980add9f2dfdedeeb226b26b55c0d\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\chrit\.gradle\caches\8.14\transforms\021b12c51f8b5228f60faaa75b804643\transformed\constraintlayout-2.0.1\AndroidManifest.xml:9:5-20
@@ -77,51 +81,51 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\chrit\.gradle\cach
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.12.0] C:\Users\chrit\.gradle\caches\8.14\transforms\39433b27076a6d40ec644f75515a70b4\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:8:9-35
+		ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:10:9-35
 	android:label
-		ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:7:9-41
+		ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:9:9-41
 	android:icon
-		ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:6:9-58
+		ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:8:9-58
 	android:allowBackup
-		ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:5:9-35
+		ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:7:9-35
 service#com.sintrans.keyboard.SinTransKeyboardService
-ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:11:9-22:19
+ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:13:9-24:19
 	android:label
-		ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:13:13-51
+		ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:15:13-51
 	android:exported
-		ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:15:13-36
+		ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:17:13-36
 	android:permission
-		ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:14:13-70
+		ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:16:13-70
 	android:name
-		ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:12:13-52
+		ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:14:13-52
 intent-filter#action:name:android.view.InputMethod
-ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:16:13-18:29
+ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:18:13-20:29
 action#android.view.InputMethod
-ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:17:17-67
+ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:19:17-67
 	android:name
-		ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:17:25-64
+		ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:19:25-64
 meta-data#android.view.im
-ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:19:13-21:50
+ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:21:13-23:50
 	android:resource
-		ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:21:17-47
+		ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:23:17-47
 	android:name
-		ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:20:17-47
+		ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:22:17-47
 activity#com.sintrans.keyboard.MainActivity
-ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:25:9-32:20
+ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:27:9-34:20
 	android:exported
-		ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:27:13-36
+		ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:29:13-36
 	android:name
-		ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:26:13-41
+		ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:28:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:28:13-31:29
+ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:30:13-33:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:29:17-69
+ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:31:17-69
 	android:name
-		ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:29:25-66
+		ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:31:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:30:17-77
+ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:32:17-77
 	android:name
-		ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:30:27-74
+		ADDED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml:32:27-74
 uses-sdk
 INJECTED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\chrit\OneDrive\Documents\keyboard\app\src\main\AndroidManifest.xml
