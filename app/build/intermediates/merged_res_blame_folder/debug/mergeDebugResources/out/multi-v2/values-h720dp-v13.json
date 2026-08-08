@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.sintrans.keyboard.app-mergeDebugResources-29:/values-h720dp-v13/values-h720dp-v13.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\chrit\\.gradle\\caches\\8.14\\transforms\\4d234e376d726e7d64f39156bac10dfe\\transformed\\appcompat-1.6.1\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "66",
+                        "endOffsets": "117"
+                    }
+                }
+            ]
+        }
+    ]
+}
