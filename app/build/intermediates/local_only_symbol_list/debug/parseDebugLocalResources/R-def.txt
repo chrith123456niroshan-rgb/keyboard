@@ -1,5 +1,17 @@
 R_DEF: Internal format may change without notice
 local
+drawable key_background
+drawable key_background_accent_off
+drawable key_background_accent_on
+drawable key_background_special
+id btn_backspace
+id btn_globe
+id btn_space
+id btn_translate_toggle
+id tv_title
+layout keyboard_view
 string app_name
 string keyboard_label
+style KeyStyle
+style KeyStyleSpecial
 xml method

@@ -2912,6 +2912,10 @@ drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_search_black_24
+drawable key_background
+drawable key_background_accent_off
+drawable key_background_accent_on
+drawable key_background_special
 drawable m3_avd_hide_password
 drawable m3_avd_show_password
 drawable m3_bottom_sheet_drag_handle
@@ -3075,6 +3079,10 @@ id beginning
 id blocking
 id bottom
 id bounce
+id btn_backspace
+id btn_globe
+id btn_space
+id btn_translate_toggle
 id buttonPanel
 id cancel_button
 id center
@@ -3419,6 +3427,7 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tv_title
 id unchecked
 id uniform
 id unlabeled
@@ -3568,6 +3577,7 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
+layout keyboard_view
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
@@ -4088,6 +4098,8 @@ style Base_Widget_MaterialComponents_TextView
 style CardView
 style CardView_Dark
 style CardView_Light
+style KeyStyle
+style KeyStyleSpecial
 style MaterialAlertDialog_Material3
 style MaterialAlertDialog_Material3_Animation
 style MaterialAlertDialog_Material3_Body_Text
