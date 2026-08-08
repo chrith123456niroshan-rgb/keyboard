@@ -3080,9 +3080,11 @@ id blocking
 id bottom
 id bounce
 id btn_backspace
+id btn_enable
 id btn_enter
 id btn_globe
 id btn_space
+id btn_switch
 id btn_translate_toggle
 id buttonPanel
 id cancel_button
@@ -3560,6 +3562,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_main
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -5074,3 +5077,4 @@ styleable ViewBackgroundHelper android_background backgroundTint backgroundTintM
 styleable ViewPager2 android_orientation
 styleable ViewStubCompat android_id android_layout android_inflatedId
 xml method
+xml network_security_config

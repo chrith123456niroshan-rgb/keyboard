@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#15161E"
+    android:padding="4dp">
+
+    <!-- Control Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:layout_marginBottom="4dp">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="SinTrans Keyboard"
+            android:textColor="#888A9E"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium"/>
+
+        <Button
+            android:id="@+id/btn_translate_toggle"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:background="@drawable/key_background_accent_off"
+            android:text="Translate: OFF"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:textAllCaps="false"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:gravity="center"
+            style="?android:attr/borderlessButtonStyle"/>
+    </LinearLayout>
+
+    <!-- Row 1: q w e r t y u i o p -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:orientation="horizontal">
+        <Button style="@style/KeyStyle" android:text="q"/>
+        <Button style="@style/KeyStyle" android:text="w"/>
+        <Button style="@style/KeyStyle" android:text="e"/>
+        <Button style="@style/KeyStyle" android:text="r"/>
+        <Button style="@style/KeyStyle" android:text="t"/>
+        <Button style="@style/KeyStyle" android:text="y"/>
+        <Button style="@style/KeyStyle" android:text="u"/>
+        <Button style="@style/KeyStyle" android:text="i"/>
+        <Button style="@style/KeyStyle" android:text="o"/>
+        <Button style="@style/KeyStyle" android:text="p"/>
+    </LinearLayout>
+
+    <!-- Row 2: a s d f g h j k l -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:orientation="horizontal"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp">
+        <Button style="@style/KeyStyle" android:text="a"/>
+        <Button style="@style/KeyStyle" android:text="s"/>
+        <Button style="@style/KeyStyle" android:text="d"/>
+        <Button style="@style/KeyStyle" android:text="f"/>
+        <Button style="@style/KeyStyle" android:text="g"/>
+        <Button style="@style/KeyStyle" android:text="h"/>
+        <Button style="@style/KeyStyle" android:text="j"/>
+        <Button style="@style/KeyStyle" android:text="k"/>
+        <Button style="@style/KeyStyle" android:text="l"/>
+    </LinearLayout>
+
+    <!-- Row 3: Shift, z x c v b n m, Backspace -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:orientation="horizontal">
+        
+        <Button
+            android:id="@+id/btn_shift"
+            style="@style/KeyStyleSpecial"
+            android:layout_weight="1.2"
+            android:text="⇧"/>
+
+        <Button style="@style/KeyStyle" android:text="z"/>
+        <Button style="@style/KeyStyle" android:text="x"/>
+        <Button style="@style/KeyStyle" android:text="c"/>
+        <Button style="@style/KeyStyle" android:text="v"/>
+        <Button style="@style/KeyStyle" android:text="b"/>
+        <Button style="@style/KeyStyle" android:text="n"/>
+        <Button style="@style/KeyStyle" android:text="m"/>
+
+        <Button
+            android:id="@+id/btn_backspace"
+            style="@style/KeyStyleSpecial"
+            android:layout_weight="1.2"
+            android:text="⌫"/>
+    </LinearLayout>
+
+    <!-- Row 4: ?123, Globe, Space, Emoji, Enter -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_mode_symbols"
+            style="@style/KeyStyleSpecial"
+            android:layout_weight="1.3"
+            android:text="?123"/>
+
+        <Button
+            android:id="@+id/btn_globe"
+            style="@style/KeyStyleSpecial"
+            android:layout_weight="1.0"
+            android:text="🌐"/>
+
+        <Button
+            android:id="@+id/btn_space"
+            style="@style/KeyStyleSpecial"
+            android:layout_weight="4.4"
+            android:text="Space"/>
+
+        <Button
+            android:id="@+id/btn_mode_emoji"
+            style="@style/KeyStyleSpecial"
+            android:layout_weight="1.0"
+            android:text="😊"/>
+
+        <Button
+            android:id="@+id/btn_enter"
+            style="@style/KeyStyleSpecial"
+            android:layout_weight="1.3"
+            android:text="⏎"/>
+    </LinearLayout>
+
+</LinearLayout>

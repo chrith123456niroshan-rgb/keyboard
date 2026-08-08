@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#12131C"
+    android:padding="24dp"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SinTrans Keyboard"
+        android:textColor="#FFFFFF"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sinhalese to English Real-Time Translation"
+        android:textColor="#888A9E"
+        android:textSize="14sp"
+        android:layout_marginBottom="48dp"/>
+
+    <!-- Step 1 Card -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/key_background"
+        android:padding="16dp"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Step 1: Enable Keyboard"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Turn on SinTrans Keyboard in your system settings."
+            android:textColor="#888A9E"
+            android:textSize="12sp"
+            android:layout_marginBottom="12dp"/>
+
+        <Button
+            android:id="@+id/btn_enable"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/key_background_special"
+            android:text="Enable in Settings"
+            android:textColor="#FFFFFF"
+            android:textAllCaps="false"
+            style="?android:attr/borderlessButtonStyle"/>
+    </LinearLayout>
+
+    <!-- Step 2 Card -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/key_background"
+        android:padding="16dp"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Step 2: Switch Keyboard"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select SinTrans Keyboard as your active input method."
+            android:textColor="#888A9E"
+            android:textSize="12sp"
+            android:layout_marginBottom="12dp"/>
+
+        <Button
+            android:id="@+id/btn_switch"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/key_background_accent_on"
+            android:text="Switch Input Method"
+            android:textColor="#FFFFFF"
+            android:textAllCaps="false"
+            style="?android:attr/borderlessButtonStyle"/>
+    </LinearLayout>
+
+    <!-- Step 3 Card (Test Input) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/key_background"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Step 3: Test Typing"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:hint="Tap here to test typing..."
+            android:textColorHint="#555770"
+            android:textColor="#FFFFFF"
+            android:background="#1B1C26"
+            android:padding="12dp"
+            android:layout_marginTop="4dp"/>
+    </LinearLayout>
+
+</LinearLayout>

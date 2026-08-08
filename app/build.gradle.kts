@@ -1,7 +1,19 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
 }
+
+// Load local.properties to read API keys securely
+val localProperties = Properties().apply {
+    val file = rootProject.file("local.properties")
+    if (file.exists()) {
+        file.inputStream().use { load(it) }
+    }
+}
+
+val translationApiKey = localProperties.getProperty("TRANSLATION_API_KEY") ?: ""
 
 android {
     namespace = "com.sintrans.keyboard"
@@ -13,6 +25,13 @@ android {
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
+
+        // Inject the API key into BuildConfig securely
+        buildConfigField("String", "TRANSLATION_API_KEY", "\"$translationApiKey\"")
+    }
+
+    buildFeatures {
+        buildConfig = true
     }
 
     buildTypes {
@@ -38,7 +57,7 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
     
-    // Coroutines for future phases
+    // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
     // OkHttp for networking

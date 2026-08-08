@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#15161E"
+    android:padding="4dp">
+
+    <!-- Header containing title and QWERTY switch -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="SinTrans Emojis"
+            android:textColor="#888A9E"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium"/>
+
+        <Button
+            android:id="@+id/btn_mode_qwerty"
+            style="@style/KeyStyleSpecial"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="ABC"
+            android:textSize="12sp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            style="?android:attr/borderlessButtonStyle"/>
+    </LinearLayout>
+
+    <!-- Scrollable Emojis Board -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="162dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:fadeScrollbars="false"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Emoji Row 1 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:orientation="horizontal">
+                <Button style="@style/KeyStyle" android:text="😀"/>
+                <Button style="@style/KeyStyle" android:text="😃"/>
+                <Button style="@style/KeyStyle" android:text="😄"/>
+                <Button style="@style/KeyStyle" android:text="😁"/>
+                <Button style="@style/KeyStyle" android:text="😆"/>
+                <Button style="@style/KeyStyle" android:text="😅"/>
+                <Button style="@style/KeyStyle" android:text="😂"/>
+                <Button style="@style/KeyStyle" android:text="🤣"/>
+            </LinearLayout>
+
+            <!-- Emoji Row 2 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:orientation="horizontal">
+                <Button style="@style/KeyStyle" android:text="😊"/>
+                <Button style="@style/KeyStyle" android:text="😇"/>
+                <Button style="@style/KeyStyle" android:text="🙂"/>
+                <Button style="@style/KeyStyle" android:text="🙃"/>
+                <Button style="@style/KeyStyle" android:text="😉"/>
+                <Button style="@style/KeyStyle" android:text="😌"/>
+                <Button style="@style/KeyStyle" android:text="😍"/>
+                <Button style="@style/KeyStyle" android:text="🥰"/>
+            </LinearLayout>
+
+            <!-- Emoji Row 3 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:orientation="horizontal">
+                <Button style="@style/KeyStyle" android:text="😘"/>
+                <Button style="@style/KeyStyle" android:text="😗"/>
+                <Button style="@style/KeyStyle" android:text="😙"/>
+                <Button style="@style/KeyStyle" android:text="😚"/>
+                <Button style="@style/KeyStyle" android:text="😋"/>
+                <Button style="@style/KeyStyle" android:text="😛"/>
+                <Button style="@style/KeyStyle" android:text="😝"/>
+                <Button style="@style/KeyStyle" android:text="😜"/>
+            </LinearLayout>
+
+            <!-- Emoji Row 4 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:orientation="horizontal">
+                <Button style="@style/KeyStyle" android:text="🤪"/>
+                <Button style="@style/KeyStyle" android:text="🤨"/>
+                <Button style="@style/KeyStyle" android:text="🧐"/>
+                <Button style="@style/KeyStyle" android:text="🤓"/>
+                <Button style="@style/KeyStyle" android:text="😎"/>
+                <Button style="@style/KeyStyle" android:text="🥸"/>
+                <Button style="@style/KeyStyle" android:text="🤩"/>
+                <Button style="@style/KeyStyle" android:text="🥳"/>
+            </LinearLayout>
+
+            <!-- Emoji Row 5 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:orientation="horizontal">
+                <Button style="@style/KeyStyle" android:text="😏"/>
+                <Button style="@style/KeyStyle" android:text="😒"/>
+                <Button style="@style/KeyStyle" android:text="😞"/>
+                <Button style="@style/KeyStyle" android:text="😔"/>
+                <Button style="@style/KeyStyle" android:text="😟"/>
+                <Button style="@style/KeyStyle" android:text="😕"/>
+                <Button style="@style/KeyStyle" android:text="🙁"/>
+                <Button style="@style/KeyStyle" android:text="☹️"/>
+            </LinearLayout>
+
+            <!-- Emoji Row 6 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:orientation="horizontal">
+                <Button style="@style/KeyStyle" android:text="😣"/>
+                <Button style="@style/KeyStyle" android:text="😖"/>
+                <Button style="@style/KeyStyle" android:text="😫"/>
+                <Button style="@style/KeyStyle" android:text="😩"/>
+                <Button style="@style/KeyStyle" android:text="🥺"/>
+                <Button style="@style/KeyStyle" android:text="😢"/>
+                <Button style="@style/KeyStyle" android:text="😭"/>
+                <Button style="@style/KeyStyle" android:text="😤"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom Action Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_mode_symbols"
+            style="@style/KeyStyleSpecial"
+            android:layout_weight="1"
+            android:text="?123"/>
+
+        <Button
+            android:id="@+id/btn_space"
+            style="@style/KeyStyleSpecial"
+            android:layout_weight="5"
+            android:text="Space"/>
+
+        <Button
+            android:id="@+id/btn_backspace"
+            style="@style/KeyStyleSpecial"
+            android:layout_weight="2"
+            android:text="⌫"/>
+    </LinearLayout>
+
+</LinearLayout>
