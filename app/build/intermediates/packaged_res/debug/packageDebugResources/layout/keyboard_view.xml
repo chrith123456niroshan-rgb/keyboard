@@ -102,20 +102,26 @@
         <Button
             android:id="@+id/btn_globe"
             style="@style/KeyStyleSpecial"
-            android:layout_weight="1.5"
+            android:layout_weight="1.2"
             android:text="🌐"/>
 
         <Button
             android:id="@+id/btn_space"
             style="@style/KeyStyleSpecial"
-            android:layout_weight="5.5"
+            android:layout_weight="4.8"
             android:text="Space"/>
 
         <Button
             android:id="@+id/btn_backspace"
             style="@style/KeyStyleSpecial"
-            android:layout_weight="2.0"
+            android:layout_weight="1.5"
             android:text="⌫"/>
+
+        <Button
+            android:id="@+id/btn_enter"
+            style="@style/KeyStyleSpecial"
+            android:layout_weight="1.5"
+            android:text="⏎"/>
     </LinearLayout>
 
 </LinearLayout>

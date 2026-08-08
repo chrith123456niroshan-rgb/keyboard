@@ -5,6 +5,7 @@ drawable key_background_accent_off
 drawable key_background_accent_on
 drawable key_background_special
 id btn_backspace
+id btn_enter
 id btn_globe
 id btn_space
 id btn_translate_toggle

@@ -3080,6 +3080,7 @@ id blocking
 id bottom
 id bounce
 id btn_backspace
+id btn_enter
 id btn_globe
 id btn_space
 id btn_translate_toggle

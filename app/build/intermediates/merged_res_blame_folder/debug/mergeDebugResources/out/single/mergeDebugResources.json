@@ -1,26 +1,30 @@
 [
     {
-        "merged": "com.sintrans.keyboard.app-debug-31:/drawable_key_background.xml.flat",
-        "source": "com.sintrans.keyboard.app-main-33:/drawable/key_background.xml"
+        "merged": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-debug-31:\\drawable_key_background_accent_on.xml.flat",
+        "source": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-main-33:\\drawable\\key_background_accent_on.xml"
     },
     {
-        "merged": "com.sintrans.keyboard.app-debug-31:/drawable_key_background_accent_off.xml.flat",
-        "source": "com.sintrans.keyboard.app-main-33:/drawable/key_background_accent_off.xml"
+        "merged": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-debug-31:\\drawable_key_background_accent_off.xml.flat",
+        "source": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-main-33:\\drawable\\key_background_accent_off.xml"
+    },
+    {
+        "merged": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-debug-31:\\drawable_key_background.xml.flat",
+        "source": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-main-33:\\drawable\\key_background.xml"
     },
     {
         "merged": "com.sintrans.keyboard.app-debug-31:/layout_keyboard_view.xml.flat",
         "source": "com.sintrans.keyboard.app-main-33:/layout/keyboard_view.xml"
     },
     {
-        "merged": "com.sintrans.keyboard.app-debug-31:/drawable_key_background_special.xml.flat",
-        "source": "com.sintrans.keyboard.app-main-33:/drawable/key_background_special.xml"
+        "merged": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-debug-31:\\drawable_key_background_special.xml.flat",
+        "source": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-main-33:\\drawable\\key_background_special.xml"
+    },
+    {
+        "merged": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-debug-31:\\layout_keyboard_view.xml.flat",
+        "source": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-main-33:\\layout\\keyboard_view.xml"
     },
     {
         "merged": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-debug-31:\\xml_method.xml.flat",
         "source": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-main-33:\\xml\\method.xml"
-    },
-    {
-        "merged": "com.sintrans.keyboard.app-debug-31:/drawable_key_background_accent_on.xml.flat",
-        "source": "com.sintrans.keyboard.app-main-33:/drawable/key_background_accent_on.xml"
     }
 ]
