@@ -7,6 +7,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true">
 
+        <!-- 1. Keyboard Service එක (පැරණි එකමයි) -->
         <service
             android:name=".SinTransKeyboardService"
             android:label="@string/keyboard_label"
@@ -19,6 +20,16 @@
                 android:name="android.view.im"
                 android:resource="@xml/method" />
         </service>
+
+        <!-- 2. අලුතින් එකතු කළ Launcher Activity එක (Error එක නැති කරන්න) -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
     </application>
 
