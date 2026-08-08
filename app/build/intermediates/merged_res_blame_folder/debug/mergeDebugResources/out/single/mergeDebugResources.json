@@ -1,5 +1,41 @@
 [
     {
+        "merged": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-debug-31:\\drawable_popup_background.xml.flat",
+        "source": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-main-33:\\drawable\\popup_background.xml"
+    },
+    {
+        "merged": "com.sintrans.keyboard.app-debug-31:/layout_keyboard_symbols.xml.flat",
+        "source": "com.sintrans.keyboard.app-main-33:/layout/keyboard_symbols.xml"
+    },
+    {
+        "merged": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-debug-31:\\layout_keyboard_qwerty.xml.flat",
+        "source": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-main-33:\\layout\\keyboard_qwerty.xml"
+    },
+    {
+        "merged": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-debug-31:\\drawable_key_background_special.xml.flat",
+        "source": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-main-33:\\drawable\\key_background_special.xml"
+    },
+    {
+        "merged": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-debug-31:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-main-33:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "com.sintrans.keyboard.app-debug-31:/layout_keyboard_qwerty.xml.flat",
+        "source": "com.sintrans.keyboard.app-main-33:/layout/keyboard_qwerty.xml"
+    },
+    {
+        "merged": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-debug-31:\\layout_keyboard_symbols.xml.flat",
+        "source": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-main-33:\\layout\\keyboard_symbols.xml"
+    },
+    {
+        "merged": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-debug-31:\\layout_keyboard_emojis.xml.flat",
+        "source": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-main-33:\\layout\\keyboard_emojis.xml"
+    },
+    {
+        "merged": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-debug-31:\\xml_method.xml.flat",
+        "source": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-main-33:\\xml\\method.xml"
+    },
+    {
         "merged": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-debug-31:\\drawable_key_background_accent_on.xml.flat",
         "source": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-main-33:\\drawable\\key_background_accent_on.xml"
     },
@@ -12,23 +48,11 @@
         "source": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-main-33:\\drawable\\key_background.xml"
     },
     {
-        "merged": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-debug-31:\\drawable_key_background_special.xml.flat",
-        "source": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-main-33:\\drawable\\key_background_special.xml"
+        "merged": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-debug-31:\\layout_key_preview_popup.xml.flat",
+        "source": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-main-33:\\layout\\key_preview_popup.xml"
     },
     {
-        "merged": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-debug-31:\\layout_keyboard_view.xml.flat",
-        "source": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-main-33:\\layout\\keyboard_view.xml"
-    },
-    {
-        "merged": "com.sintrans.keyboard.app-debug-31:/xml_network_security_config.xml.flat",
-        "source": "com.sintrans.keyboard.app-main-33:/xml/network_security_config.xml"
-    },
-    {
-        "merged": "com.sintrans.keyboard.app-debug-31:/layout_activity_main.xml.flat",
-        "source": "com.sintrans.keyboard.app-main-33:/layout/activity_main.xml"
-    },
-    {
-        "merged": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-debug-31:\\xml_method.xml.flat",
-        "source": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-main-33:\\xml\\method.xml"
+        "merged": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-debug-31:\\xml_network_security_config.xml.flat",
+        "source": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-main-33:\\xml\\network_security_config.xml"
     }
 ]

@@ -11,13 +11,13 @@ import java.io.IOException
 class MyMemoryTranslationRepository : TranslationRepository {
     private val client = OkHttpClient()
 
-    override suspend fun translate(text: String): String = withContext(Dispatchers.IO) {
+    override suspend fun translate(text: String, targetLang: String): String = withContext(Dispatchers.IO) {
         val trimmed = text.trim()
         if (trimmed.isEmpty()) return@withContext ""
 
         val encodedText = Uri.encode(trimmed)
-        // MyMemory Translation API Sinhalese (si) to English (en)
-        val url = "https://api.mymemory.translated.net/get?q=$encodedText&langpair=si|en"
+        // MyMemory Translation API Sinhalese (si) to the selected target language
+        val url = "https://api.mymemory.translated.net/get?q=$encodedText&langpair=si|$targetLang"
 
         val request = Request.Builder()
             .url(url)
@@ -32,7 +32,6 @@ class MyMemoryTranslationRepository : TranslationRepository {
                 val responseBody = response.body?.string() ?: throw IOException("Empty response body")
                 val jsonObject = JSONObject(responseBody)
                 
-                // If MyMemory returns standard HTTP status code via JSON responseStatus
                 val responseStatus = jsonObject.optInt("responseStatus", 200)
                 if (responseStatus == 200 || responseStatus == 304) {
                     val responseData = jsonObject.getJSONObject("responseData")

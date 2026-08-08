@@ -13,14 +13,14 @@ class GoogleTranslationRepository : TranslationRepository {
     private val client = OkHttpClient()
     private val mediaType = "application/json; charset=utf-8".toMediaType()
 
-    override suspend fun translate(text: String): String = withContext(Dispatchers.IO) {
+    override suspend fun translate(text: String, targetLang: String): String = withContext(Dispatchers.IO) {
         val trimmed = text.trim()
         if (trimmed.isEmpty()) return@withContext ""
 
         val apiKey = BuildConfig.TRANSLATION_API_KEY
         if (apiKey.isEmpty() || apiKey == "default_free_api_key") {
             // Fallback to MyMemory translation API if no Google API key is configured
-            return@withContext fallbackTranslate(trimmed)
+            return@withContext fallbackTranslate(trimmed, targetLang)
         }
 
         val url = "https://translation.googleapis.com/language/translate/v2?key=$apiKey"
@@ -28,7 +28,7 @@ class GoogleTranslationRepository : TranslationRepository {
         // Build Google Translation API POST payload
         val jsonBody = JSONObject().apply {
             put("q", trimmed)
-            put("target", "en")
+            put("target", targetLang)
             put("source", "si")
             put("format", "text")
         }
@@ -58,14 +58,14 @@ class GoogleTranslationRepository : TranslationRepository {
         } catch (e: Exception) {
             e.printStackTrace()
             // If Google API fails (e.g. quota, network), fallback to MyMemory to maintain user experience
-            return@withContext fallbackTranslate(trimmed)
+            return@withContext fallbackTranslate(trimmed, targetLang)
         }
     }
 
-    private suspend fun fallbackTranslate(text: String): String {
+    private suspend fun fallbackTranslate(text: String, targetLang: String): String {
         val fallbackRepo = MyMemoryTranslationRepository()
         return try {
-            fallbackRepo.translate(text)
+            fallbackRepo.translate(text, targetLang)
         } catch (e: Exception) {
             e.printStackTrace()
             ""
