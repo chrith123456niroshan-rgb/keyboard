@@ -62,4 +62,7 @@ dependencies {
 
     // OkHttp for networking
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
+
+    // JUnit for testing
+    testImplementation("junit:junit:4.13.2")
 }

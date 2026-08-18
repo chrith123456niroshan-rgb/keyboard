@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.sintrans.keyboard.SinglishEngineTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-08-18T05:12:18.251Z" hostname="CHARITH_PC" time="0.044">
+  <properties/>
+  <testcase name="testSanyakaLetters" classname="com.sintrans.keyboard.SinglishEngineTest" time="0.039"/>
+  <testcase name="testExplicitKillers" classname="com.sintrans.keyboard.SinglishEngineTest" time="0.001"/>
+  <testcase name="testLongestPrefixMatchingAndConsonants" classname="com.sintrans.keyboard.SinglishEngineTest" time="0.001"/>
+  <testcase name="testColloquialDictionary" classname="com.sintrans.keyboard.SinglishEngineTest" time="0.0"/>
+  <testcase name="testNasalAndDoubleConsonants" classname="com.sintrans.keyboard.SinglishEngineTest" time="0.001"/>
+  <testcase name="testVowelsAndModifiers" classname="com.sintrans.keyboard.SinglishEngineTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
