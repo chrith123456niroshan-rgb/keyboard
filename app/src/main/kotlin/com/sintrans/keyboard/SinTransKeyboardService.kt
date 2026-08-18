@@ -1,6 +1,9 @@
 package com.sintrans.keyboard
 
+import android.content.BroadcastReceiver
 import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
 import android.inputmethodservice.InputMethodService
 import android.view.HapticFeedbackConstants
 import android.view.KeyEvent
@@ -22,6 +25,9 @@ class SinTransKeyboardService : InputMethodService(), CoroutineScope by MainScop
 
     private var isTranslateEnabled = false
     private var isShifted = false
+    private var isCapsLock = false
+    private var lastShiftClickTime = 0L
+    private var isDirectEnglishMode = false
     private val translationRepository: TranslationRepository = GoogleTranslationRepository()
     
     // Transliteration buffers
@@ -37,6 +43,31 @@ class SinTransKeyboardService : InputMethodService(), CoroutineScope by MainScop
     private enum class KeyboardMode { QWERTY, SYMBOLS, EMOJI }
     private var currentMode = KeyboardMode.QWERTY
 
+    private var activeKeyboardView: View? = null
+    private var notificationReceiver: BroadcastReceiver? = null
+    private val mainHandler = android.os.Handler(android.os.Looper.getMainLooper())
+
+    override fun onCreate() {
+        super.onCreate()
+        val prefs = getSharedPreferences("sintrans_prefs", Context.MODE_PRIVATE)
+        targetLang = prefs.getString("target_lang", "en") ?: "en"
+
+        // Register broadcast receiver for translated notifications
+        notificationReceiver = object : BroadcastReceiver() {
+            override fun onReceive(context: Context?, intent: Intent?) {
+                if (intent?.action == "com.sintrans.keyboard.NOTIFICATION_TRANSLATED") {
+                    val sender = intent.getStringExtra("sender") ?: "Unknown"
+                    val translation = intent.getStringExtra("translation") ?: ""
+                    if (translation.isNotEmpty()) {
+                        showNotificationBanner(sender, translation)
+                    }
+                }
+            }
+        }
+        val filter = IntentFilter("com.sintrans.keyboard.NOTIFICATION_TRANSLATED")
+        registerReceiver(notificationReceiver, filter)
+    }
+
     override fun onCreateInputView(): View {
         // Inflate layout dynamically based on active mode
         val layoutId = when (currentMode) {
@@ -46,8 +77,26 @@ class SinTransKeyboardService : InputMethodService(), CoroutineScope by MainScop
         }
 
         val keyboardView = LayoutInflater.from(this).inflate(layoutId, null)
+        activeKeyboardView = keyboardView
         setupKeyboardBindings(keyboardView)
         return keyboardView
+    }
+
+    private fun showNotificationBanner(sender: String, translation: String) {
+        val keyboardView = activeKeyboardView ?: return
+        val tvTitle = keyboardView.findViewById<TextView>(R.id.tv_title) ?: return
+        
+        val originalText = tvTitle.text.toString()
+        val bannerText = "$sender: $translation"
+        
+        tvTitle.text = bannerText
+        tvTitle.setSelected(true)
+        
+        tvTitle.postDelayed({
+            if (tvTitle.text == bannerText) {
+                tvTitle.text = originalText
+            }
+        }, 5000)
     }
 
     private fun setupKeyboardBindings(keyboardView: View) {
@@ -77,6 +126,10 @@ class SinTransKeyboardService : InputMethodService(), CoroutineScope by MainScop
                 targetLang = if (targetLang == "en") "ta" else "en"
                 updateLangButtonState(btn)
                 
+                // Save targetLang to SharedPreferences
+                val prefs = getSharedPreferences("sintrans_prefs", Context.MODE_PRIVATE)
+                prefs.edit().putString("target_lang", targetLang).apply()
+                
                 // Clear buffers to restart typing sentence in the newly toggled target language
                 currentSentenceBuffer.setLength(0)
                 committedTargetLength = 0
@@ -90,10 +143,23 @@ class SinTransKeyboardService : InputMethodService(), CoroutineScope by MainScop
         val btnShift = keyboardView.findViewById<Button>(R.id.btn_shift)
         btnShift?.let { btn ->
             btn.setOnClickListener {
-                isShifted = !isShifted
-                updateShiftState(keyboardView)
-                // Haptic feedback on Shift
                 btn.performHapticFeedback(HapticFeedbackConstants.KEYBOARD_TAP)
+                val currentTime = System.currentTimeMillis()
+                if (currentTime - lastShiftClickTime < 400) {
+                    // Double tap: toggle Caps Lock
+                    isCapsLock = !isCapsLock
+                    isShifted = isCapsLock
+                } else {
+                    // Single tap: toggle Shift (and turn off Caps Lock if it was active)
+                    if (isCapsLock) {
+                        isCapsLock = false
+                        isShifted = false
+                    } else {
+                        isShifted = !isShifted
+                    }
+                }
+                lastShiftClickTime = currentTime
+                updateShiftState(keyboardView)
             }
         }
 
@@ -117,14 +183,46 @@ class SinTransKeyboardService : InputMethodService(), CoroutineScope by MainScop
             handleSpaceClick()
         }
 
-        keyboardView.findViewById<Button>(R.id.btn_backspace)?.setOnClickListener {
-            it.performHapticFeedback(HapticFeedbackConstants.KEYBOARD_TAP)
-            handleBackspaceClick()
-        }
+        val btnBackspace = keyboardView.findViewById<Button>(R.id.btn_backspace)
+        btnBackspace?.setOnTouchListener(object : View.OnTouchListener {
+            private val INITIAL_DELAY = 400L
+            private val REPEAT_INTERVAL = 50L
 
-        keyboardView.findViewById<Button>(R.id.btn_globe)?.setOnClickListener {
-            it.performHapticFeedback(HapticFeedbackConstants.KEYBOARD_TAP)
-            switchToNextKeyboard()
+            private val actionRunnable = object : Runnable {
+                override fun run() {
+                    btnBackspace.performHapticFeedback(HapticFeedbackConstants.KEYBOARD_TAP)
+                    handleBackspaceClick()
+                    mainHandler.postDelayed(this, REPEAT_INTERVAL)
+                }
+            }
+
+            override fun onTouch(v: View?, event: android.view.MotionEvent?): Boolean {
+                when (event?.action) {
+                    android.view.MotionEvent.ACTION_DOWN -> {
+                        btnBackspace.performHapticFeedback(HapticFeedbackConstants.KEYBOARD_TAP)
+                        handleBackspaceClick()
+                        mainHandler.removeCallbacks(actionRunnable)
+                        mainHandler.postDelayed(actionRunnable, INITIAL_DELAY)
+                        return true
+                    }
+                    android.view.MotionEvent.ACTION_UP, android.view.MotionEvent.ACTION_CANCEL -> {
+                        mainHandler.removeCallbacks(actionRunnable)
+                        return true
+                    }
+                }
+                return false
+            }
+        })
+
+        val btnGlobe = keyboardView.findViewById<Button>(R.id.btn_globe)
+        btnGlobe?.let { btn ->
+            btn.setOnClickListener {
+                btn.performHapticFeedback(HapticFeedbackConstants.KEYBOARD_TAP)
+                isDirectEnglishMode = !isDirectEnglishMode
+                updateGlobeButtonState(keyboardView)
+                val status = if (isDirectEnglishMode) "ON" else "OFF"
+                Toast.makeText(this, "Direct English Mode: $status", Toast.LENGTH_SHORT).show()
+            }
         }
 
         keyboardView.findViewById<Button>(R.id.btn_enter)?.setOnClickListener {
@@ -135,8 +233,9 @@ class SinTransKeyboardService : InputMethodService(), CoroutineScope by MainScop
         // Bind standard typing characters (recursively)
         bindStandardKeys(keyboardView)
 
-        // Initialize characters case based on current Shift state
+        // Initialize character case based on current Shift state and Globe state
         updateShiftState(keyboardView)
+        updateGlobeButtonState(keyboardView)
     }
 
     private fun bindStandardKeys(view: View) {
@@ -173,7 +272,7 @@ class SinTransKeyboardService : InputMethodService(), CoroutineScope by MainScop
 
     private fun handleCharacterInput(charText: String) {
         val inputConnection = currentInputConnection ?: return
-        if (currentMode == KeyboardMode.QWERTY) {
+        if (currentMode == KeyboardMode.QWERTY && !isDirectEnglishMode) {
             // Singlish Phonetic input flow
             englishInputBuffer.append(charText)
             val transliterated = SinglishEngine.transliterate(englishInputBuffer.toString())
@@ -184,24 +283,34 @@ class SinTransKeyboardService : InputMethodService(), CoroutineScope by MainScop
             // Commit new Sinhalese transliteration
             inputConnection.commitText(transliterated, 1)
             previousSinhalaWordLength = transliterated.length
+
+            if (isShifted && !isCapsLock) {
+                isShifted = false
+                activeKeyboardView?.let { updateShiftState(it) }
+            }
         } else {
-            // Standard typing (symbols / emojis), bypass buffers
+            // Standard typing (symbols / emojis / Direct English), bypass buffers
             inputConnection.commitText(charText, 1)
             englishInputBuffer.setLength(0)
             previousSinhalaWordLength = 0
+
+            if (isShifted && !isCapsLock) {
+                isShifted = false
+                activeKeyboardView?.let { updateShiftState(it) }
+            }
         }
     }
 
     private fun handleSpaceClick() {
         val inputConnection = currentInputConnection ?: return
-        val word = if (englishInputBuffer.isNotEmpty()) SinglishEngine.transliterate(englishInputBuffer.toString()) else ""
+        val word = if (englishInputBuffer.isNotEmpty() && !isDirectEnglishMode) SinglishEngine.transliterate(englishInputBuffer.toString()) else ""
         
         // Reset word-level buffers
         englishInputBuffer.setLength(0)
         val prevSinhalaLen = previousSinhalaWordLength
         previousSinhalaWordLength = 0
 
-        if (isTranslateEnabled && currentMode == KeyboardMode.QWERTY) {
+        if (isTranslateEnabled && currentMode == KeyboardMode.QWERTY && !isDirectEnglishMode) {
             if (word.isNotEmpty()) {
                 currentSentenceBuffer.append(word).append(" ")
                 val fullSentence = currentSentenceBuffer.toString().trim()
@@ -266,14 +375,14 @@ class SinTransKeyboardService : InputMethodService(), CoroutineScope by MainScop
 
     private fun handleEnterClick() {
         val inputConnection = currentInputConnection ?: return
-        val word = if (englishInputBuffer.isNotEmpty()) SinglishEngine.transliterate(englishInputBuffer.toString()) else ""
+        val word = if (englishInputBuffer.isNotEmpty() && !isDirectEnglishMode) SinglishEngine.transliterate(englishInputBuffer.toString()) else ""
         
         // Reset word-level buffers
         englishInputBuffer.setLength(0)
         val prevSinhalaLen = previousSinhalaWordLength
         previousSinhalaWordLength = 0
 
-        if (isTranslateEnabled && currentMode == KeyboardMode.QWERTY) {
+        if (isTranslateEnabled && currentMode == KeyboardMode.QWERTY && !isDirectEnglishMode) {
             if (word.isNotEmpty() || currentSentenceBuffer.isNotEmpty()) {
                 if (word.isNotEmpty()) {
                     currentSentenceBuffer.append(word)
@@ -328,7 +437,27 @@ class SinTransKeyboardService : InputMethodService(), CoroutineScope by MainScop
         updateButtonsCase(rootView)
         val btnShift = rootView.findViewById<Button>(R.id.btn_shift)
         btnShift?.let {
-            if (isShifted) {
+            when {
+                isCapsLock -> {
+                    it.text = "⇪"
+                    it.setBackgroundResource(R.drawable.key_background_accent_on)
+                }
+                isShifted -> {
+                    it.text = "⇧"
+                    it.setBackgroundResource(R.drawable.key_background_accent_on)
+                }
+                else -> {
+                    it.text = "⇧"
+                    it.setBackgroundResource(R.drawable.key_background_special)
+                }
+            }
+        }
+    }
+
+    private fun updateGlobeButtonState(rootView: View) {
+        val btnGlobe = rootView.findViewById<Button>(R.id.btn_globe)
+        btnGlobe?.let {
+            if (isDirectEnglishMode) {
                 it.setBackgroundResource(R.drawable.key_background_accent_on)
             } else {
                 it.setBackgroundResource(R.drawable.key_background_special)
@@ -467,6 +596,9 @@ class SinTransKeyboardService : InputMethodService(), CoroutineScope by MainScop
     }
 
     override fun onDestroy() {
+        notificationReceiver?.let {
+            unregisterReceiver(it)
+        }
         cancel()
         super.onDestroy()
     }

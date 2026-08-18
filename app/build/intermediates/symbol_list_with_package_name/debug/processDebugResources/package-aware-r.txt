@@ -3089,6 +3089,9 @@ id btn_mode_alt_symbols
 id btn_mode_emoji
 id btn_mode_qwerty
 id btn_mode_symbols
+id btn_notification_access
+id btn_overlay_access
+id btn_overlay_close
 id btn_shift
 id btn_space
 id btn_switch
@@ -3437,6 +3440,9 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tv_overlay_original
+id tv_overlay_sender
+id tv_overlay_translated
 id tv_preview_text
 id tv_title
 id unchecked
@@ -3650,6 +3656,7 @@ layout notification_template_custom_big
 layout notification_template_icon_group
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout popup_notification_translation
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material

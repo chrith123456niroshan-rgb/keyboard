@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/popup_background"
+    android:padding="16dp"
+    android:elevation="8dp">
+
+    <!-- Header containing sender name and close button -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="8dp">
+
+        <TextView
+            android:id="@+id/tv_overlay_sender"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Sender Name"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/btn_overlay_close"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            android:contentDescription="Close Translation"
+            android:tint="#888A9E" />
+    </LinearLayout>
+
+    <!-- Original Text -->
+    <TextView
+        android:id="@+id/tv_overlay_original"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Original Text in Sinhala"
+        android:textColor="#888A9E"
+        android:textSize="12sp"
+        android:layout_marginBottom="4dp" />
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#2E2F3E"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="6dp" />
+
+    <!-- Translation label and translated text -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Translation"
+        android:textColor="#3D8BFF"
+        android:textSize="10sp"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:layout_marginBottom="2dp" />
+
+    <TextView
+        android:id="@+id/tv_overlay_translated"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Translated text"
+        android:textColor="#59B2FF"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+</LinearLayout>

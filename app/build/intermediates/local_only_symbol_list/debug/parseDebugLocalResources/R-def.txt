@@ -14,10 +14,16 @@ id btn_mode_alt_symbols
 id btn_mode_emoji
 id btn_mode_qwerty
 id btn_mode_symbols
+id btn_notification_access
+id btn_overlay_access
+id btn_overlay_close
 id btn_shift
 id btn_space
 id btn_switch
 id btn_translate_toggle
+id tv_overlay_original
+id tv_overlay_sender
+id tv_overlay_translated
 id tv_preview_text
 id tv_title
 layout activity_main
@@ -25,6 +31,7 @@ layout key_preview_popup
 layout keyboard_emojis
 layout keyboard_qwerty
 layout keyboard_symbols
+layout popup_notification_translation
 string app_name
 string keyboard_label
 style KeyStyle

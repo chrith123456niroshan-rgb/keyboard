@@ -128,4 +128,63 @@
             android:layout_marginTop="4dp"/>
     </LinearLayout>
 
+    <!-- Step 4 Card (Notification Translation Setup) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/key_background"
+        android:padding="16dp"
+        android:layout_marginTop="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Step 4: Notification Translation"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Translate incoming messages automatically and display them on-screen."
+            android:textColor="#888A9E"
+            android:textSize="12sp"
+            android:layout_marginBottom="12dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_notification_access"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                android:background="@drawable/key_background_special"
+                android:text="Notification Access"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:textAllCaps="false"
+                style="?android:attr/borderlessButtonStyle"/>
+
+            <Button
+                android:id="@+id/btn_overlay_access"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_marginStart="4dp"
+                android:background="@drawable/key_background_accent_on"
+                android:text="Overlay Permission"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:textAllCaps="false"
+                style="?android:attr/borderlessButtonStyle"/>
+        </LinearLayout>
+    </LinearLayout>
+
 </LinearLayout>
