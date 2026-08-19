@@ -25,11 +25,11 @@ class GoogleTranslationRepository : TranslationRepository {
 
         val url = "https://translation.googleapis.com/language/translate/v2?key=$apiKey"
         
-        // Build Google Translation API POST payload
+        // Build Google Translation API POST payload with forced Sinhala source language
         val jsonBody = JSONObject().apply {
             put("q", trimmed)
-            put("target", targetLang)
-            put("source", "si")
+            put("target", targetLang.lowercase())
+            put("source", "si") // Explicitly force source language to Sinhala
             put("format", "text")
         }
 

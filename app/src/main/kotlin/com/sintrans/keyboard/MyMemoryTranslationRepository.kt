@@ -17,7 +17,7 @@ class MyMemoryTranslationRepository : TranslationRepository {
 
         val encodedText = Uri.encode(trimmed)
         // MyMemory Translation API Sinhalese (si) to the selected target language
-        val url = "https://api.mymemory.translated.net/get?q=$encodedText&langpair=si|$targetLang"
+        val url = "https://api.mymemory.translated.net/get?q=$encodedText&langpair=si|${targetLang.lowercase()}"
 
         val request = Request.Builder()
             .url(url)

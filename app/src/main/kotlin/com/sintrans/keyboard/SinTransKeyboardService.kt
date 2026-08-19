@@ -139,6 +139,7 @@ class SinTransKeyboardService : InputMethodService(), CoroutineScope by MainScop
             }
         }
 
+
         // Bind shift key if present
         val btnShift = keyboardView.findViewById<Button>(R.id.btn_shift)
         btnShift?.let { btn ->
@@ -548,6 +549,7 @@ class SinTransKeyboardService : InputMethodService(), CoroutineScope by MainScop
             e.printStackTrace()
         }
     }
+
 
     private fun updateTranslateButtonState(btn: Button) {
         if (isTranslateEnabled) {

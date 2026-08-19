@@ -4,8 +4,16 @@
         "source": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-main-33:\\drawable\\popup_background.xml"
     },
     {
+        "merged": "com.sintrans.keyboard.app-debug-31:/layout_keyboard_symbols.xml.flat",
+        "source": "com.sintrans.keyboard.app-main-33:/layout/keyboard_symbols.xml"
+    },
+    {
         "merged": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-debug-31:\\layout_keyboard_qwerty.xml.flat",
         "source": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-main-33:\\layout\\keyboard_qwerty.xml"
+    },
+    {
+        "merged": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-debug-31:\\layout_popup_notification_translation.xml.flat",
+        "source": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-main-33:\\layout\\popup_notification_translation.xml"
     },
     {
         "merged": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-debug-31:\\layout_activity_main.xml.flat",
@@ -16,20 +24,16 @@
         "source": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-main-33:\\drawable\\key_background_special.xml"
     },
     {
+        "merged": "com.sintrans.keyboard.app-debug-31:/layout_keyboard_qwerty.xml.flat",
+        "source": "com.sintrans.keyboard.app-main-33:/layout/keyboard_qwerty.xml"
+    },
+    {
         "merged": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-debug-31:\\layout_keyboard_symbols.xml.flat",
         "source": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-main-33:\\layout\\keyboard_symbols.xml"
     },
     {
         "merged": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-debug-31:\\layout_keyboard_emojis.xml.flat",
         "source": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-main-33:\\layout\\keyboard_emojis.xml"
-    },
-    {
-        "merged": "com.sintrans.keyboard.app-debug-31:/layout_popup_notification_translation.xml.flat",
-        "source": "com.sintrans.keyboard.app-main-33:/layout/popup_notification_translation.xml"
-    },
-    {
-        "merged": "com.sintrans.keyboard.app-debug-31:/layout_activity_main.xml.flat",
-        "source": "com.sintrans.keyboard.app-main-33:/layout/activity_main.xml"
     },
     {
         "merged": "C:\\Users\\chrit\\.gradle\\daemon\\8.14\\com.sintrans.keyboard.app-debug-31:\\xml_method.xml.flat",

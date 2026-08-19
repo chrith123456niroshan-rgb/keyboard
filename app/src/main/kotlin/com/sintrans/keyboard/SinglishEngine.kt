@@ -59,20 +59,50 @@ object SinglishEngine {
     private val rawRuleMap = mapOf(
         // Vowels (Independent, at start of word or after non-consonant)
         "aee" to "ෑ",
+        "Aee" to "ෑ",
+        "AEE" to "ෑ",
         "aae" to "ෑ",
+        "Aae" to "ෑ",
+        "AAE" to "ෑ",
         "ae" to "ඇ",
+        "Ae" to "ඇ",
+        "AE" to "ඇ",
         "aa" to "ආ",
+        "Aa" to "ආ",
+        "AA" to "ආ",
         "ii" to "ඊ",
+        "Ii" to "ඊ",
+        "II" to "ඊ",
         "uu" to "ඌ",
+        "Uu" to "ඌ",
+        "UU" to "ඌ",
         "ee" to "ඒ",
+        "Ee" to "ඒ",
+        "EE" to "ඒ",
         "oo" to "ඌ", // "oo" -> long 'u' sound (ඌ) in Helakuru
+        "Oo" to "ඌ",
+        "OO" to "ඌ",
         "ow" to "ඕ",
+        "Ow" to "ඕ",
+        "OW" to "ඕ",
         "au" to "ඖ",
+        "Au" to "ඖ",
+        "AU" to "ඖ",
         "ou" to "ඖ",
+        "Ou" to "ඖ",
+        "OU" to "ඖ",
         "ei" to "ඓ",
+        "Ei" to "ඓ",
+        "EI" to "ඓ",
         "ai" to "ඓ",
+        "Ai" to "ඓ",
+        "AI" to "ඓ",
         "oi" to "ඔයි",
+        "Oi" to "ඔයි",
+        "OI" to "ඔයි",
         "ui" to "උයි",
+        "Ui" to "උයි",
+        "UI" to "උයි",
         "a" to "අ",
         "i" to "ඉ",
         "u" to "උ",
@@ -115,12 +145,19 @@ object SinglishEngine {
         "Dh" to "ඪ", // retroflex aspirated
         "ph" to "ඵ",
         "bh" to "භ",
-        "sh" to "ෂ", // sh -> ෂ as requested
+        "sh" to "ෂ", // sh -> ෂ
         "S" to "ශ",  // S -> ශ
         "kn" to "ඤ",
         "gn" to "ඥ",
         "mb" to "ඹ",
         "nj" to "ඤ",
+        "nd" to "ඳ",
+        "Nd" to "ඳ",
+        "ND" to "ඳ",
+        "ng" to "ඟ",
+        "Ng" to "ඟ",
+        "NG" to "ඟ",
+        "nD" to "ඬ",
 
         // 1-Letter Consonants
         "k" to "ක",
@@ -156,18 +193,44 @@ object SinglishEngine {
     // Dependent vowel modifiers (pillam) when attached to a consonant
     private val rawModifierMap = mapOf(
         "aee" to "ෑ",
+        "Aee" to "ෑ",
+        "AEE" to "ෑ",
         "aae" to "ෑ",
+        "Aae" to "ෑ",
+        "AAE" to "ෑ",
         "ae" to "ැ",
+        "Ae" to "ැ",
+        "AE" to "ැ",
         "aa" to "ා",
+        "Aa" to "ා",
+        "AA" to "ා",
         "ii" to "ී",
+        "Ii" to "ී",
+        "II" to "ී",
         "uu" to "ූ",
+        "Uu" to "ූ",
+        "UU" to "ූ",
         "ee" to "ේ",
+        "Ee" to "ේ",
+        "EE" to "ේ",
         "oo" to "ූ", // "oo" -> ූ (long 'u' sound modifier) as requested
+        "Oo" to "ූ",
+        "OO" to "ූ",
         "ow" to "ෝ",
+        "Ow" to "ෝ",
+        "OW" to "ෝ",
         "au" to "ෞ",
+        "Au" to "ෞ",
+        "AU" to "ෞ",
         "ou" to "ෞ",
+        "Ou" to "ෞ",
+        "OU" to "ෞ",
         "ai" to "ෛ",
+        "Ai" to "ෛ",
+        "AI" to "ෛ",
         "ei" to "ෛ",
+        "Ei" to "ෛ",
+        "EI" to "ෛ",
         "a" to "", // inherent vowel
         "i" to "ි",
         "u" to "ු",
@@ -185,7 +248,8 @@ object SinglishEngine {
     private val consonants = setOf(
         "k", "g", "c", "j", "t", "d", "n", "p", "b", "m", "y", "r", "l", "w", "v", "s", "h", "f",
         "kh", "gh", "ch", "Ch", "jh", "th", "dh", "ph", "bh", "sh", "ndh", "ngh", "nnd", "nnh", "dhh", "thh", "kn", "gn",
-        "T", "D", "N", "L", "S", "mb", "nj", "z", "B", "zg", "zj", "zd", "zdh", "zq", "zk", "zh", "Th", "Dh"
+        "T", "D", "N", "L", "S", "mb", "nj", "z", "B", "zg", "zj", "zd", "zdh", "zq", "zk", "zh", "Th", "Dh",
+        "nd", "Nd", "ND", "ng", "Ng", "NG", "nD"
     )
 
     // Pre-sorted rules for longest prefix matching
@@ -197,6 +261,29 @@ object SinglishEngine {
     private val sortedModifiers = rawModifierMap.entries
         .sortedByDescending { it.key.length }
         .associate { it.key to it.value }
+
+    // Set of characters that are matched case-insensitively
+    private val caseInsensitiveChars = setOf('h', 'g', 'k', 'p', 'm', 'y', 'r', 'w', 'v', 'f')
+
+    private fun isMatch(input: String, startIndex: Int, ruleKey: String): Boolean {
+        if (startIndex + ruleKey.length > input.length) return false
+        for (j in ruleKey.indices) {
+            val ruleChar = ruleKey[j]
+            val inputChar = input[startIndex + j]
+            if (ruleChar in caseInsensitiveChars) {
+                val rLower = if (ruleChar in 'A'..'Z') ruleChar + 32 else ruleChar
+                val iLower = if (inputChar in 'A'..'Z') inputChar + 32 else inputChar
+                if (rLower != iLower) {
+                    return false
+                }
+            } else {
+                if (ruleChar != inputChar) {
+                    return false
+                }
+            }
+        }
+        return true
+    }
 
     fun transliterate(input: String): String {
         if (input.isEmpty()) return ""
@@ -223,7 +310,7 @@ object SinglishEngine {
 
             var matched = false
             for ((key, value) in sortedRules) {
-                if (input.startsWith(key, i)) {
+                if (isMatch(input, i, key)) {
                     val isCons = consonants.contains(key)
                     tokens.add(Token(key, value, isConsonant = isCons, isWhitespace = false))
                     i += key.length
